@@ -12,16 +12,17 @@ public class DBConnectionProvider {
     private final static String USERNAME = "root";
     private final static String PASSWORD = "root";
 
-    private DBConnectionProvider(){}
+    private DBConnectionProvider() {
+    }
 
-    public static DBConnectionProvider getInstance(){
+    public static DBConnectionProvider getInstance() {
         return INSTANCE;
     }
 
     public Connection getConnection() {
         try {
-            if(connection==null||connection.isClosed()){
-                connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
+            if (connection == null || connection.isClosed()) {
+                connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             }
         } catch (SQLException e) {
             e.printStackTrace();
